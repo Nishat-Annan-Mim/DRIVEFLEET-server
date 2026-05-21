@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       process.env.CLIENT_URL || "http://localhost:5173",
-      "https://drivefleet.vercel.app",
+      "https://drivefleet-client-navy.vercel.app",
     ],
     credentials: true,
   }),
