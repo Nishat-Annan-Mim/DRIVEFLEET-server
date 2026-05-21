@@ -7,8 +7,8 @@ const {
   cancelBooking,
 } = require("../controllers/bookingController");
 
-router.post("/:carId", verifyToken, bookCar);
 router.get("/my-bookings", verifyToken, getMyBookings);
+router.post("/:carId", verifyToken, bookCar);
 router.delete("/:id", verifyToken, cancelBooking);
 
 module.exports = router;
