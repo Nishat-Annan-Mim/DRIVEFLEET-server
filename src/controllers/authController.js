@@ -39,11 +39,12 @@ const login = async (req, res) => {
           password: "google-oauth",
         });
       } else {
-        // Update name/photo from Google in case it changed
-        user.name = name || user.name;
-        user.photo = photo || user.photo;
-        await user.save();
-      }
+  // Keep the registered name, only update photo if not set
+  if (!user.photo && photo) {
+    user.photo = photo;
+    await user.save();
+  }
+}
       userData = { email: user.email, name: user.name, photo: user.photo };
     } else {
       // Email/password login
